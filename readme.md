@@ -1,0 +1,1 @@
+通过github下载docker镜像，存为artifact，方便下载

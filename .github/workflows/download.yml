@@ -1,0 +1,22 @@
+name: download
+
+on:
+  workflow_dispatch:
+
+jobs:
+  download:
+    name: download image
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      IMAGE: "kindest/node:v1.25.3@sha256:f52781bc0d7a19fb6c405c2af83abfeb311f130707a0e219175677e366cc45d1"
+    steps:
+      - name: docker save
+        run: |
+          docker pull ${{ env.IMAGE }}
+          docker save ${{ env.IMAGE }} > /tmp/image.tar.gz
+      - name: Upload images
+        uses: actions/upload-artifact@v3
+        with:
+          name: "image.tar.gz"
+          path: "/tmp/image.tar.gz"
