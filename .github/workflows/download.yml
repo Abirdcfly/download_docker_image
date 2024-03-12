@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      IMAGE: "kindest/node:v1.25.3@sha256:f52781bc0d7a19fb6c405c2af83abfeb311f130707a0e219175677e366cc45d1"
+      IMAGE: "kubeagi/core-library-cli:v0.0.1-20240308-18ea8aa"
     steps:
       - name: docker save
         run: |
