@@ -11,10 +11,20 @@ jobs:
     env:
       IMAGE: "kubeagi/core-library-cli:v0.0.1-20240308-18ea8aa"
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          overprovision-lvm: true
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
       - name: docker save
         run: |
           docker pull ${{ env.IMAGE }}
           docker save ${{ env.IMAGE }} > /tmp/image.tar.gz
+          docker rmi ${{ env.IMAGE }}
       - name: Upload images
         uses: actions/upload-artifact@v3
         with:
