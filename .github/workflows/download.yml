@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      IMAGE: "kubeagi/core-library-cli:v0.0.1-20240308-18ea8aa"
+      IMAGE: "rayproject/ray:2.43.0-py312-cu125"
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
