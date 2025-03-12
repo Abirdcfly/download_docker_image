@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      IMAGE: "rayproject/ray:2.43.0-py312-cu125"
+      IMAGE: "vllm/vllm-openai:v0.6.1-post2"
     steps:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
